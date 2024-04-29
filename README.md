@@ -1,9 +1,11 @@
-# OpenAI LunarLander-v2 DeepRL-based solutions
+# DSCI6003 Final Project Repository
+# Lunar Lander: Reinforcement Learning for Autonomous Navigation and Landing
+## Bright Ofori and Jafar Vohra
+## Department of Electrical & Computer Engineering and Computer Science
+## University of New Haven
 
-Investigation under the development of the master thesis "DeepRL-based Motion Planning for Indoor Mobile Robot Navigation" @ Institute of Systems and Robotics - University of Coimbra (ISR-UC)  
-
-## Software/Requirements
-Module | Software/Hardware
+### Software / Requirements
+Module | Software / Hardware
 ------------- | -------------
 Python IDE | Pycharm
 Deep Learning library | Tensorflow + Keras
@@ -15,14 +17,12 @@ Packages | requirements.txt
 **To import the required packages ([requirements.txt](DQN/requirements.txt)), download the file into the project folder and type the following instruction in the project environment terminal:**  
 > pip install -r requirements.txt
 
-## :warning: **WARNING** :warning:  
-The training process generates a [.txt file](DQN/saved_networks.txt) that track the network models (in 'tf' and .h5 formats) which achieved the solved requirement of the environment. Additionally, an overview image (graph) of the training procedure is created.   
-To perform several training procedures, the .txt, .png, and directory names must be change. Otherwise, the information of previous training models will get overwritten, and therefore lost.  
+### **WARNING** 
+The training process generates a [.txt file](DQN/saved_networks.txt) that tracks the network models (in 'tf' and .h5 formats) which achieve the solved requirement of the environment. Additionally, an overview image (graph) of the training procedure is created. To perform several training procedures, the .txt, .png, and directory names must be changed. Otherwise, the information of previous training models will get overwritten and therefore lost.  
 
-Regarding testing the saved network models, if using the .h5 model, a 5 episode training is required to initialize/build the keras.model network. Thus, the warnings above mentioned are also appliable to this situation.   
-Loading the saved model in 'tf' is the recommended option. After finishing the testing, an overview image (graph) of the training procedure is also generated.  
+Regarding testing the saved network models, if using the .h5 model, a 5-episode training is required to initialize/build the keras.model network. Thus, the previously mentioned warnings are also applicable to this situation. Loading the saved model in 'tf' is the recommended option. After finishing the testing, an overview image (graph) of the training procedure is also generated.  
 
-## OpenAI LunarLander-v2
+### OpenAI LunarLander-v2
 **Actions:**<br />
 0 - No action  
 1 - Fire left engine  
@@ -30,31 +30,31 @@ Loading the saved model in 'tf' is the recommended option. After finishing the t
 3 - Fire right engine  
 
 **States:**<br />
-0 - Lander horizontal coordinate  
-1 - Lander vertical coordinate  
-2 - Lander horizontal speed  
-3 - Lander vertical speed  
+0 - Lander x-coordinate  
+1 - Lander y-coordinate  
+2 - Lander x-speed  
+3 - Lander y-speed  
 4 - Lander angle  
 5 - Lander angular speed  
-6 - Bool: 1 if first leg has contact, else 0  
-7 - Bool: 1 if second leg has contact, else 0  
+6 - Bool: 1 if the first leg has contact, else 0  
+7 - Bool: 1 if the second leg has contact, else 0  
 
 **Rewards:**<br />
-Moving from the top of the screen to the landing pad gives a scalar reward between (100-140)    
-Negative reward if the lander moves away from the landing pad   
-If the lander crashes, a scalar reward of (-100) is given  
-If the lander comes to rest, a scalar reward of (100) is given  
-Each leg with ground contact corresponds to a scalar reward of (10)  
-Firing the main engine corresponds to a scalar reward of (-0.3) per frame   
-Firing the side engines corresponds to a scalar reward of (-0.3) per frame   
+- Between 100 and 140 reward for moving from the top of the screen to the landing pad 
+- Negative reward if the lander moves away from the landing pad   
+- Reward of -100 if the lander crashes  
+- Reward of 100 if the lander comes to rest  
+- Reward of 10 for each leg of the lander with ground contact  
+- Reward of -0.3 per frame for firing the main engine  
+- Reward of -0.3 per frame for firing either of the side engines
 
 **Episode termination:**<br />
-Lander crashes  
-Lander comes to rest  
-Episode length > 400  
+- Lander crashes  
+- Lander comes to rest  
+- Episode length > 400  
 
 **Solved Requirement:**<br />
-Average reward of 200.0 over 100 consecutive trials  
+- An average reward of 200.0 over 100 consecutive trials  
 
 ## Deep Q-Network (DQN)
        
